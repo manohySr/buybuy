@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "RedHatText";
+  src:
+    url("./fonts/RedHatText-VariableFont_wght.ttf") format("truetype"),
+    url("./fonts/RedHatText-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RedHatText";
+  src: url("./fonts/RedHatText-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
