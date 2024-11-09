@@ -14,12 +14,12 @@ function computeReplaceImage(items) {
       ]),
     );
 
-    return reactive({
+    return {
       ...item,
       image: updatedImages,
       amount: 0,
       cartState: false,
-    });
+    };
   });
 
   return updatedItems;
