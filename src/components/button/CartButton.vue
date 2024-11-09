@@ -1,6 +1,22 @@
-<script setup>
+<script setup lang="ts">
 import decrement from "@/assets/images/icon-decrement-quantity.svg";
 import increment from "@/assets/images/icon-increment-quantity.svg";
+import type { PropType } from "vue";
+
+const props = defineProps({
+  amount: {
+    type: Number,
+    required: true,
+  },
+  increment: {
+    type: Function as PropType<() => void>,
+    required: true,
+  },
+  decrement: {
+    type: Function as PropType<() => void>,
+    required: true,
+  },
+});
 </script>
 <template>
   <div
@@ -8,14 +24,16 @@ import increment from "@/assets/images/icon-increment-quantity.svg";
   >
     <button
       class="flex items-center justify-center p-2 rounded-full hover:border-2 hover:border-white w-8 h-8"
+      @click="props.decrement"
     >
       <img :src="decrement" alt="Decrement Icon" class="text-white" />
     </button>
 
-    <span class="text-white">4</span>
+    <span class="text-white">{{ props.amount }}</span>
 
     <button
       class="flex items-center justify-center p-2 rounded-full hover:border-2 hover:border-white w-8 h-8"
+      @click="props.increment"
     >
       <img :src="increment" alt="Increment Icon" class="text-white" />
     </button>
