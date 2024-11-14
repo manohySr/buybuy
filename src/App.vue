@@ -2,7 +2,8 @@
 import CartButton from "@/components/button/CartButton.vue";
 import AddButton from "@/components/button/AddButton.vue";
 import { desserts as _desserts } from "./data";
-import { reactive } from "vue";
+import { computed, reactive } from "vue";
+import Cart from "@/components/Cart.vue";
 
 function computeReplaceImage(items) {
   const updatedItems = items.map((item) => {
@@ -27,6 +28,10 @@ function computeReplaceImage(items) {
 
 const desserts = reactive(computeReplaceImage(_desserts));
 
+const selectedDesserts = computed(() =>
+  desserts.filter((dessert) => dessert.amount > 0),
+);
+
 const increment = (dessert) => {
   dessert.amount++;
 };
@@ -44,7 +49,7 @@ const handleClick = (dessert) => {
 };
 </script>
 <template>
-  <div class="container p-5">
+  <div class="container bg-rose-50 p-5">
     <h1 class="text-3xl font-bold mb-5">Desserts</h1>
     <div class="dessert" v-for="dessert in desserts" :key="dessert.name">
       <div class="relative flex flex-col items-center">
@@ -74,6 +79,8 @@ const handleClick = (dessert) => {
         </div>
       </div>
     </div>
+
+    <Cart numberItem="5" :desserts="selectedDesserts" />
   </div>
 </template>
 
