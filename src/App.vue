@@ -66,8 +66,8 @@ const handleClick = (dessert) => {
           <CartButton
             v-else
             :amount="dessert.amount"
-            :increment="() => increment(dessert)"
-            :decrement="() => decrement(dessert)"
+            @increment="() => increment(dessert)"
+            @decrement="() => decrement(dessert)"
           />
         </div>
       </div>
