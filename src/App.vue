@@ -79,8 +79,7 @@ const handleClick = (dessert) => {
         </div>
       </div>
     </div>
-
-    <Cart numberItem="5" :desserts="selectedDesserts" />
+    <Cart :numberItem="selectedDesserts.length" :desserts="selectedDesserts" />
   </div>
 </template>
 
