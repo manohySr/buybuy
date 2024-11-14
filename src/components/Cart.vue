@@ -20,6 +20,11 @@ const totalSum = computed(() => {
     0,
   );
 });
+
+const handleDelete = (dessert) => {
+  dessert.amount = 0;
+  dessert.cartState = false;
+};
 </script>
 <template>
   <div class="bg-white rounded-lg p-5">
@@ -49,6 +54,7 @@ const totalSum = computed(() => {
         </div>
         <button
           class="flex items-center justify-center p-2 rounded-full border-2 border-red w-8 h-8"
+          @click="() => handleDelete(dessert)"
         >
           <img :src="deleteIcon" alt="Delete Icon" class="text-red" />
         </button>
